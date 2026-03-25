@@ -7,5 +7,8 @@ text = input('Введите ваш текст: ')
 shift = int(input('Шаг сдвига: '))
 crypt = ''
 for char in text:
-    crypt += chr((ord(char) + shift - 97) % 26 + 97)
+    if 97 <= ord(char) <= 122:
+        crypt += chr((ord(char) + shift - 97) % 26 + 97)
+    elif 65 <= ord(char) <= 90:
+        crypt += chr((ord(char) + shift - 65) % 26 + 65)
 print(crypt)
