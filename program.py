@@ -3,6 +3,16 @@ en_up = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ru_low = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
 ru_up = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 
+def is_answer(ans):
+    answer = ans.strip().lower()
+    while True:
+        if answer in ['зашифровать', 'з', 'да', 'yes', 'y', 'crypt']:
+            return crypt()
+        elif answer in ['расшифровать', 'р', 'decrypt', 'd']:
+            return decrypt()
+        else:
+            answer = input('Зашифровать или расшифровать тект? (з/р)')
+
 def crypt():
     text = input('Введите ваш текст: ')
     key = int(input('Шаг сдвига: '))
@@ -20,7 +30,7 @@ def crypt():
             crypt += char
     print(crypt)
 
-def encrypt():
+def decrypt():
     text = input('Введите ваш текст: ')
     key = int(input('Шаг сдвига: '))
     decrypt = ''
@@ -37,8 +47,4 @@ def encrypt():
             decrypt += char
     print(decrypt)
 
-q = input('Зашифровать или расшифровать тект? (з/р)')
-if q == 'Зашифровать':
-    crypt()
-else:
-    encrypt()
+is_answer(input('Зашифровать или расшифровать тект?(з/р) '))
