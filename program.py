@@ -13,6 +13,12 @@ def is_answer(ans):
         else:
             answer = input('Зашифровать или расшифровать тект? (з/р)')
 
+def is_again(ans): # функция проверки ответа
+    if ans.strip().lower() in ['да', 'д', 'yes', 'y']:
+        return True
+    else:
+        return False
+
 def crypt():
     text = input('Введите ваш текст: ')
     key = int(input('Шаг сдвига: '))
@@ -47,4 +53,9 @@ def decrypt():
             decrypt += char
     print(decrypt)
 
-is_answer(input('Зашифровать или расшифровать тект?(з/р) '))
+again = True
+while again:
+    is_answer(input('Зашифровать или расшифровать тект?(з/р) '))
+    again = is_again(input('Хотите повторно запустить программу?(д/н) '))
+else:
+    print('Спасибо, что воспользовались программой!')
