@@ -7,7 +7,7 @@ def is_digital(number): # функция проверки на ввод числ
         else:
             return int(num)
 
-def is_answer(ans):
+def is_answer(ans): # функция проверки ответа про назначение программы
     answer = ans.strip().lower()
     while True:
         if answer in ['зашифровать', 'з', 'да', 'yes', 'y', 'crypt']:
@@ -17,13 +17,13 @@ def is_answer(ans):
         else:
             answer = input('Зашифровать или расшифровать тект? (з/р) ')
 
-def is_again(ans): # функция проверки ответа
+def is_again(ans): # функция проверки ответа 'да' и "нет"
     if ans.strip().lower() in ['да', 'д', 'yes', 'y']:
         return True
     else:
         return False
 
-def crypt():
+def crypt(): # функция шифрования
     text = input('Введите ваш текст: ').strip()
     key = is_digital(input('Шаг сдвига: '))
     crypt = ''
@@ -40,7 +40,7 @@ def crypt():
             crypt += char
     print(crypt)
 
-def decrypt():
+def decrypt(): # функция расшифровки
     text = input('Введите ваш текст: ').strip()
     key = is_digital(input('Шаг сдвига: '))
     decrypt = ''
