@@ -3,6 +3,15 @@ en_up = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ru_low = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
 ru_up = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 
+def is_digital(number): # функция проверки на ввод числа
+    num = number.strip()
+    while True:
+        if not num.isdigit() or int(num) == 0:
+            print('Некорректные данные, введите число!')
+            num = input('Введите число: ').strip()
+        else:
+            return int(num)
+
 def is_answer(ans):
     answer = ans.strip().lower()
     while True:
@@ -11,7 +20,7 @@ def is_answer(ans):
         elif answer in ['расшифровать', 'р', 'decrypt', 'd']:
             return decrypt()
         else:
-            answer = input('Зашифровать или расшифровать тект? (з/р)')
+            answer = input('Зашифровать или расшифровать тект? (з/р) ')
 
 def is_again(ans): # функция проверки ответа
     if ans.strip().lower() in ['да', 'д', 'yes', 'y']:
@@ -20,8 +29,8 @@ def is_again(ans): # функция проверки ответа
         return False
 
 def crypt():
-    text = input('Введите ваш текст: ')
-    key = int(input('Шаг сдвига: '))
+    text = input('Введите ваш текст: ').strip()
+    key = is_digital(input('Шаг сдвига: '))
     crypt = ''
     for char in text:
         if 97 <= ord(char) <= 122:
@@ -37,8 +46,8 @@ def crypt():
     print(crypt)
 
 def decrypt():
-    text = input('Введите ваш текст: ')
-    key = int(input('Шаг сдвига: '))
+    text = input('Введите ваш текст: ').strip()
+    key = is_digital(input('Шаг сдвига: '))
     decrypt = ''
     for char in text:
         if 97 <= ord(char) <= 122:
