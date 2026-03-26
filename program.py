@@ -1,8 +1,3 @@
-en_low = 'abcdefghijklmnopqrstuvwxyz'
-en_up = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-ru_low = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
-ru_up = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-
 def is_digital(number): # функция проверки на ввод числа
     num = number.strip()
     while True:
